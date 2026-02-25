@@ -1,0 +1,21 @@
+# Requirements for AI Behavioral Safety Studies Portfolio
+# Note: The transcript_analyzer.py tool uses only Python standard library
+# These optional packages can enhance functionality if needed
+
+# For advanced analysis (optional)
+# numpy>=1.21.0
+# pandas>=1.3.0
+# scikit-learn>=1.0.0
+# matplotlib>=3.5.0
+
+# For natural language processing (optional)
+# nltk>=3.6.0
+# spacy>=3.0.0
+# textblob>=0.17.0
+
+# For web interface (optional)
+# flask>=2.0.0
+# streamlit>=1.0.0
+
+# For testing
+# pytest>=7.0.0
