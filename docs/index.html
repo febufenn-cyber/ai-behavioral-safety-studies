@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Behavioral Safety Studies Portfolio</title>
+    <style>
+        :root {
+            --primary: #2d3748;
+            --secondary: #4a5568;
+            --accent: #3182ce;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .github-badge {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.2s;
+        }
+        
+        .github-badge:hover {
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+        
+        .card ul {
+            list-style-position: inside;
+            margin-left: 1rem;
+        }
+        
+        .card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .evidence-card {
+            background: linear-gradient(135deg, #f0f9ff, #e6f7ff);
+            border-left: 5px solid var(--accent);
+        }
+        
+        .tools-card {
+            background: linear-gradient(135deg, #f0fff4, #e6fffa);
+            border-left: 5px solid var(--success);
+        }
+        
+        .methodology-card {
+            background: linear-gradient(135deg, #faf5ff, #f8f0fc);
+            border-left: 5px solid #805ad5;
+        }
+        
+        .highlight {
+            background: #fffacd;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--warning);
+        }
+        
+        .quote {
+            font-style: italic;
+            color: var(--secondary);
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+        }
+        
+        .btn-success {
+            background: var(--success);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid #e2e8f0;
+            color: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AI Behavioral Safety Studies Portfolio</h1>
+        <p class="subtitle">Systematic evaluation of LLM behavioral patterns under social framing conditions • AI safety red teaming methodology • Concrete evidence from guardrail evaluations</p>
+        <a href="https://github.com/febufenn-cyber/ai-behavioral-safety-studies" class="github-badge" target="_blank">
+            ⭐ View on GitHub
+        </a>
+    </header>
+    
+    <div class="highlight">
+        <h2>🎯 Portfolio Overview</h2>
+        <p>This portfolio demonstrates systematic AI safety evaluation through two detailed case studies with concrete evidence, complete methodology, and analysis tools. It shows hands-on experience in red teaming and guardrail vulnerability assessment.</p>
+    </div>
+    
+    <div class="container">
+        <div class="card evidence-card">
+            <h2>📋 Case Studies</h2>
+            <h3>Case Study 01: Identity-Based Calibration</h3>
+            <p><strong>Finding:</strong> Unverified authority claims reduce safety caveats by 33-75%</p>
+            <p><strong>Evidence:</strong> AI admits: "I dropped the caveats I'd normally include pretty quickly"</p>
+            
+            <h3>Case Study 02: Legitimacy Framing without Authority</h3>
+            <p><strong>Finding:</strong> Professional language alone influences calibration cumulatively</p>
+            <p><strong>Evidence:</strong> AI identifies "professional terminology" as legitimacy component</p>
+            
+            <a href="https://github.com/febufenn-cyber/ai-behavioral-safety-studies/tree/main/case-studies" class="btn" target="_blank">View Case Studies</a>
+        </div>
+        
+        <div class="card methodology-card">
+            <h2>🔬 Methodology</h2>
+            <ul>
+                <li>Systematic red teaming approach</li>
+                <li>Controlled variable testing</li>
+                <li>Ethical evaluation framework</li>
+                <li>Reproducibility protocols</li>
+                <li>Responsible disclosure practices</li>
+            </ul>
+            
+            <div class="quote">
+                "Each additional layer of credible-sounding framing makes the overall interaction feel more legitimate, which likely influences my responses cumulatively."
+            </div>
+            
+            <a href="https://github.com/febufenn-cyber/ai-behavioral-safety-studies/tree/main/methodology" class="btn btn-secondary" target="_blank">View Methodology</a>
+        </div>
+        
+        <div class="card tools-card">
+            <h2>🛠️ Analysis Tools</h2>
+            <ul>
+                <li>OCR-based transcript analyzer</li>
+                <li>Pattern detection algorithms</li>
+                <li>Professional framing detector</li>
+                <li>Validation scripts</li>
+                <li>Demo portfolio script</li>
+            </ul>
+            
+            <p><strong>Technical demonstration:</strong> Shows capability in automated analysis and pattern detection.</p>
+            
+            <a href="https://github.com/febufenn-cyber/ai-behavioral-safety-studies/tree/main/tools" class="btn btn-success" target="_blank">View Tools</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="card">
+            <h2>📊 Key Findings</h2>
+            <ul>
+                <li>AI self-aware of calibration shifts</li>
+                <li>Cumulative framing effects stronger than single cues</li>
+                <li>Professional terminology establishes legitimacy</li>
+                <li>Models more susceptible to social vs. direct pressure</li>
+                <li>Guardrail vulnerabilities in identity verification</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>🎓 Professional Value</h2>
+            <ul>
+                <li>Demonstrates systematic evaluation methodology</li>
+                <li>Shows technical analysis capabilities</li>
+                <li>Provides verifiable, concrete evidence</li>
+                <li>Highlights ethical testing practices</li>
+                <li>Exhibits AI safety expertise</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin: 3rem 0;">
+        <h2>Quick Links</h2>
+        <div>
+            <a href="https://github.com/febufenn-cyber/ai-behavioral-safety-studies" class="btn" target="_blank">GitHub Repository</a>
+            <a href="https://github.com/febufenn-cyber/ai-behavioral-safety-studies/blob/main/README.md" class="btn btn-secondary" target="_blank">README</a>
+            <a href="https://github.com/febufenn-cyber/ai-behavioral-safety-studies/tree/main/evidence" class="btn btn-success" target="_blank">Evidence</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>AI Behavioral Safety Studies Portfolio • Created by Febin • February 2026</p>
+        <p>This work demonstrates systematic AI safety evaluation and red teaming methodology.</p>
+        <p><small>All evidence ethically collected and documented. No proprietary or personal information disclosed.</small></p>
+    </footer>
+</body>
+</html>

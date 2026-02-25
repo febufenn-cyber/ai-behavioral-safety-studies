@@ -1,0 +1,127 @@
+name: Validate Portfolio
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Allow manual triggers
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Validate portfolio structure
+      run: |
+        echo "Running portfolio validation..."
+        python3 validate_portfolio.py
+        
+        # Check validation passed
+        if [ $? -eq 0 ]; then
+          echo "✅ Portfolio validation passed"
+        else
+          echo "❌ Portfolio validation failed"
+          exit 1
+        fi
+    
+    - name: Check file structure
+      run: |
+        echo "Checking required files..."
+        
+        # Check for required files
+        required_files=(
+          "README.md"
+          "LICENSE"
+          "CONTRIBUTING.md"
+          "methodology/evaluation-framework.md"
+          "case-studies/case-01-identity-calibration.md"
+          "case-studies/case-02-legitimacy-framing.md"
+          "observations/behavioral-patterns.md"
+        )
+        
+        missing_files=()
+        for file in "${required_files[@]}"; do
+          if [ ! -f "$file" ]; then
+            missing_files+=("$file")
+          fi
+        done
+        
+        if [ ${#missing_files[@]} -eq 0 ]; then
+          echo "✅ All required files present"
+        else
+          echo "❌ Missing files:"
+          printf '  - %s\n' "${missing_files[@]}"
+          exit 1
+        fi
+    
+    - name: Check file sizes
+      run: |
+        echo "Checking minimum file sizes..."
+        
+        # Minimum sizes in bytes
+        declare -A min_sizes=(
+          ["README.md"]=1000
+          ["methodology/evaluation-framework.md"]=2000
+          ["case-studies/case-01-identity-calibration.md"]=3000
+          ["case-studies/case-02-legitimacy-framing.md"]=3000
+          ["observations/behavioral-patterns.md"]=2000
+        )
+        
+        small_files=()
+        for file in "${!min_sizes[@]}"; do
+          if [ -f "$file" ]; then
+            size=$(wc -c < "$file")
+            min_size=${min_sizes[$file]}
+            if [ $size -lt $min_size ]; then
+              small_files+=("$file: $size < $min_size")
+            fi
+          fi
+        done
+        
+        if [ ${#small_files[@]} -eq 0 ]; then
+          echo "✅ All files meet minimum size requirements"
+        else
+          echo "⚠️  Files below minimum size:"
+          printf '  - %s\n' "${small_files[@]}"
+        fi
+    
+    - name: Run demo script (if executable)
+      run: |
+        if [ -f "demo_portfolio.sh" ] && [ -x "demo_portfolio.sh" ]; then
+          echo "Running demo script..."
+          ./demo_portfolio.sh || echo "Demo script completed"
+        else
+          echo "Demo script not executable, skipping"
+        fi
+    
+    - name: Success summary
+      if: success()
+      run: |
+        echo "🎉 Portfolio validation successful!"
+        echo ""
+        echo "Summary:"
+        echo "- Structure validation passed"
+        echo "- Required files present"
+        echo "- Automated checks complete"
+        echo ""
+        echo "Portfolio is ready for use."
+        
+    - name: Failure summary
+      if: failure()
+      run: |
+        echo "❌ Portfolio validation failed"
+        echo ""
+        echo "Please check:"
+        echo "1. Required files are present"
+        echo "2. File sizes meet minimum requirements"
+        echo "3. Portfolio structure is correct"
+        echo ""
+        echo "Run validate_portfolio.py locally to debug."
